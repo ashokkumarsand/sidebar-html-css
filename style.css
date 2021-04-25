@@ -1,0 +1,155 @@
+:root {
+  --font-family: "Nunito Sans", serif;
+  --text-color: #fff;
+  --base-font-size: 16px;
+  --sidebar-background-color-00: #154c92;
+  --sidebar-background-color-01: #212426;
+  --sidebar-background-color-02: #192434;
+  --sidebar-background-color-03: #103567;
+  --sidebar-text-color-00: #fff;
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 64px;
+  --menu-height: 40px;
+  --sidebar-dock-button-size: 24px;
+  --sidebar-menu-item-border-color: #666;
+  --badge-background-color-00: #f14463;
+}
+body {
+  font-family: var(--font-family);
+  font-size: var(--base-font-size);
+  color: var(--text-color);
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.badge {
+  background-color: var(--badge-background-color-00);
+  border-radius: 4px;
+  padding: 0 6px;
+}
+.sidebar,
+.sidebar * {
+  color: var(--sidebar-text-color-00);
+  box-sizing: border-box;
+}
+.sidebar {
+  background-color: var(--sidebar-background-color-00);
+  bottom: 0;
+  color: var(--sidebar-text-color-00);
+  height: 100%;
+  height: 100vh;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: ease-in 0.05s linear;
+  width: var(--sidebar-width);
+  z-index: 100;
+  padding-right: 8px;
+}
+.sidebar.collapsed {
+  width: var(--sidebar-collapsed-width);
+}
+.sidebar.collapsed li a {
+  align-items: flex-end;
+  justify-content: center;
+}
+.sidebar.collapsed .menu .initials {
+  display: block;
+}
+.sidebar.collapsed .text {
+  display: none;
+}
+
+.sidebar.collapsed li .badge {
+  position: absolute;
+  left: 24px;
+}
+
+.sidebar > ul {
+  padding: 8px;
+}
+.sidebar > ul .toggle {
+  position: absolute;
+  top: 15px;
+  right: calc((var(--sidebar-dock-button-size) / -3));
+  background: var(--sidebar-background-color-00);
+  border-radius: calc(var(--sidebar-dock-button-size) / 2);
+  width: calc(var(--sidebar-dock-button-size));
+  height: calc(var(--sidebar-dock-button-size));
+  z-index: 101;
+  text-align: center;
+  border: none;
+}
+.sidebar > ul .toggle:hover {
+  background-color: var(--sidebar-background-color-03);
+}
+.sidebar li {
+  display: block;
+  margin: 2px 0;
+}
+.sidebar li.selected > a {
+  background-color: var(--sidebar-background-color-01);
+}
+.sidebar li > a {
+  padding: 8px;
+  display: flex;
+  height: var(--menu-height);
+  text-decoration: none;
+  transform: translateZ(0) scale(1, 1);
+  transition: all 0.5s linear;
+  border-radius: 4px;
+}
+.sidebar li > a:hover {
+  background-color: var(--sidebar-background-color-02);
+}
+.sidebar li .badge {
+  align-self: center;
+}
+.sidebar > .menu li > ul.submenu {
+  display: none;
+}
+.sidebar > .menu li.selected > ul.submenu {
+  display: block;
+  margin: 4px -16px 4px -8px;
+  padding: 8px 16px 8px 8px;
+  background: var(--sidebar-background-color-03);
+  transition: ease-in 0.5s linear;
+}
+.sidebar > .menu .initials {
+  display: none;
+}
+.sidebar .icon {
+  position: relative;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+}
+.sidebar .text {
+  line-height: 24px;
+  margin-left: 1rem;
+  flex-grow: 1;
+}
+.sidebar .text:first-child {
+  margin-left: 0;
+}
+.sidebar .initials + .text {
+  margin-left: 0;
+}
+.icon-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar > ul .toggle .right,
+.sidebar.collapsed > ul .toggle .left {
+  display: none;
+}
+.sidebar > ul .toggle .left,
+.sidebar.collapsed > ul .toggle .right {
+  display: block;
+}
