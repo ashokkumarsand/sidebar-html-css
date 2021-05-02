@@ -153,3 +153,13 @@ body {
 .sidebar.collapsed > ul .toggle .right {
   display: block;
 }
+
+.sidebar ul > li.expandable span.expand,
+.sidebar ul > li.expandable.selected span.collapse {
+  display: block;
+}
+
+.sidebar ul > li.expandable.selected span.expand,
+.sidebar ul > li.expandable span.collapse {
+  display: none;
+}
